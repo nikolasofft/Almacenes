@@ -1,5 +1,6 @@
 package vistas.Archivos;
 
+import vistas.AdministradorDeUsuarios.Permisos;
 import Conexion.Conexion;
 import java.sql.*;
 import java.util.logging.Level;
@@ -130,82 +131,81 @@ public class Clientes extends javax.swing.JInternalFrame {
         jPanel1.setBackground(new java.awt.Color(102, 102, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        nuevocliente.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        nuevocliente.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         nuevocliente.setText("Nuevo Cliente");
         nuevocliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nuevoclienteActionPerformed(evt);
             }
         });
-        jPanel1.add(nuevocliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 100, -1));
+        jPanel1.add(nuevocliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 110, -1));
 
-        Guardar.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        Guardar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Guardar.setText("Guardar");
         Guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 100, -1));
+        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 110, -1));
 
-        modificar.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        modificar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         modificar.setText("Modificar");
         modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modificarActionPerformed(evt);
             }
         });
-        jPanel1.add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 74, 100, -1));
+        jPanel1.add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 74, 110, -1));
 
-        salir.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        salir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         salir.setText("Salir");
         salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 salirActionPerformed(evt);
             }
         });
-        jPanel1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 186, 100, -1));
+        jPanel1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 186, 110, -1));
 
+        eliminar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         eliminar.setText("Eliminar");
         eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 100, -1));
+        jPanel1.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 110, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 220));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 220));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Mantenimiento del Cliente");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, -1, -1));
+        getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 270, -1));
 
-        nombre.setBackground(new java.awt.Color(204, 204, 204));
-        getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 280, -1));
-
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Domicilio:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, -1, -1));
 
-        domicilio.setBackground(new java.awt.Color(204, 204, 204));
         domicilio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 domicilioActionPerformed(evt);
             }
         });
-        getContentPane().add(domicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 280, -1));
+        getContentPane().add(domicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 270, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Correo:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
-
-        correo.setBackground(new java.awt.Color(204, 204, 204));
-        getContentPane().add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 280, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, -1, -1));
+        getContentPane().add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 270, -1));
 
         tabla_clientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -244,12 +244,11 @@ public class Clientes extends javax.swing.JInternalFrame {
 
         getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 540, 220));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Cuit:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
-
-        cuit.setBackground(new java.awt.Color(204, 204, 204));
-        getContentPane().add(cuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 280, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, -1, -1));
+        getContentPane().add(cuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 270, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 370, 230));

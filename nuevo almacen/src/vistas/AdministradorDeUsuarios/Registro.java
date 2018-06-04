@@ -1,10 +1,11 @@
-package vistas.Archivos;
+package vistas.AdministradorDeUsuarios;
 
 import Conexion.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import vistas.Principal;
 
 public class Registro extends javax.swing.JInternalFrame {
 
@@ -32,7 +33,12 @@ public class Registro extends javax.swing.JInternalFrame {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                Permisos.addItem(rs.getString("nombre"));
+                if(rs.getString("nombre").equals("admin")){
+                    
+                }else{
+                    Permisos.addItem(rs.getString("nombre"));
+                }
+                
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.toString());
@@ -41,6 +47,7 @@ public class Registro extends javax.swing.JInternalFrame {
 
     public Registro() {
         initComponents();
+        inhabilitar();
         limpiaFrm();
         cargar_combobox();
     }
@@ -79,8 +86,10 @@ public class Registro extends javax.swing.JInternalFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/equipo.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 5, 130, -1));
 
         modificar.setText("Modificar");
         modificar.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +97,7 @@ public class Registro extends javax.swing.JInternalFrame {
                 modificarActionPerformed(evt);
             }
         });
+        jPanel1.add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 144, 130, -1));
 
         nuevo_usuario.setText("Nuevo Usuario");
         nuevo_usuario.addActionListener(new java.awt.event.ActionListener() {
@@ -95,6 +105,7 @@ public class Registro extends javax.swing.JInternalFrame {
                 nuevo_usuarioActionPerformed(evt);
             }
         });
+        jPanel1.add(nuevo_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 173, 130, -1));
 
         Registrar.setText("Registrar");
         Registrar.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +113,7 @@ public class Registro extends javax.swing.JInternalFrame {
                 RegistrarActionPerformed(evt);
             }
         });
+        jPanel1.add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 202, 130, -1));
 
         jButton4.setText("Salir");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -109,36 +121,7 @@ public class Registro extends javax.swing.JInternalFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(modificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(nuevo_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Registrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(modificar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nuevo_usuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Registrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 246, 130, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 280));
 
@@ -147,40 +130,36 @@ public class Registro extends javax.swing.JInternalFrame {
         jLabel2.setText("Registro de Usuario");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 11, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nombre:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 52, -1, -1));
-
-        nombre.setBackground(new java.awt.Color(204, 204, 204));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, -1, -1));
         getContentPane().add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 49, 260, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Apellido:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 83, -1, -1));
-
-        apellido.setBackground(new java.awt.Color(204, 204, 204));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
         getContentPane().add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 80, 260, -1));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Usuario:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 114, -1, -1));
-
-        usuario.setBackground(new java.awt.Color(204, 204, 204));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, -1, -1));
         getContentPane().add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 111, 260, -1));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Contraseña:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 145, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, -1, -1));
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("<html>Repetir Contraseña:</html>");
         jLabel7.setToolTipText("");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 168, 82, -1));
-
-        contraseña1.setBackground(new java.awt.Color(204, 204, 204));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 70, -1));
         getContentPane().add(contraseña1, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 142, 260, -1));
 
-        contraseña2.setBackground(new java.awt.Color(204, 204, 204));
         contraseña2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contraseña2ActionPerformed(evt);
@@ -188,19 +167,19 @@ public class Registro extends javax.swing.JInternalFrame {
         });
         getContentPane().add(contraseña2, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 176, 260, -1));
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Permiso:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 210, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Correo:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 239, -1, -1));
-
-        correo.setBackground(new java.awt.Color(204, 204, 204));
-        getContentPane().add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 236, 260, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, -1, -1));
+        getContentPane().add(correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 260, -1));
 
         Permisos.setBackground(new java.awt.Color(204, 204, 204));
-        Permisos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Nivel1", "Nivel2" }));
+        Permisos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
         getContentPane().add(Permisos, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 207, 260, -1));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.jpg"))); // NOI18N
@@ -249,14 +228,21 @@ public class Registro extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, e.toString());
         }
         limpiaFrm();
+        
     }//GEN-LAST:event_RegistrarActionPerformed
 
     private void nuevo_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevo_usuarioActionPerformed
         habilitarFrm();
+        modificar.setEnabled(false);
+        nuevo_usuario.setEnabled(false);
+        Registrar.setEnabled(true);
     }//GEN-LAST:event_nuevo_usuarioActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
-
+        this.setVisible(true);
+        ModificarUsuarios mo=new ModificarUsuarios();
+        Principal.panel.add(mo);
+        mo.setVisible(true);
     }//GEN-LAST:event_modificarActionPerformed
     public void limpiaFrm() {
         this.nombre.setText("");

@@ -1,5 +1,6 @@
 package vistas.Archivos;
 
+import vistas.AdministradorDeUsuarios.Permisos;
 import Conexion.Conexion;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
@@ -67,7 +68,7 @@ public class Productos extends javax.swing.JInternalFrame {
         ResultSet rs;
 
         try {
-            ps = con.prepareStatement("SELECT id_productos, codigo, tipo_producto_id_tipo, detalle, stock, precio_vta FROM productos");
+            ps = con.prepareStatement("SELECT id_productos, codigo, tipo_producto, detalle, stock, precio_vta FROM productos");
             rs = ps.executeQuery();
             ResultSetMetaData rsmd = rs.getMetaData();
             int cantidad = rsmd.getColumnCount();
@@ -215,16 +216,14 @@ public class Productos extends javax.swing.JInternalFrame {
         );
 
         getContentPane().add(PanelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 400));
+        getContentPane().add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 130, -1));
 
-        codigo.setBackground(new java.awt.Color(204, 204, 204));
-        getContentPane().add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, 150, -1));
-
-        lblCodigo.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        lblCodigo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblCodigo.setForeground(new java.awt.Color(255, 255, 255));
         lblCodigo.setText("Código: ");
         getContentPane().add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, 20));
 
-        lblTipos.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        lblTipos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblTipos.setForeground(new java.awt.Color(255, 255, 255));
         lblTipos.setText("Tipo de Producto: ");
         getContentPane().add(lblTipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, -1, 20));
@@ -237,47 +236,37 @@ public class Productos extends javax.swing.JInternalFrame {
 
         tipo_producto.setMaximumRowCount(4);
         tipo_producto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
-        getContentPane().add(tipo_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 270, -1));
+        getContentPane().add(tipo_producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, 240, -1));
+        getContentPane().add(detalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 510, -1));
 
-        detalle.setBackground(new java.awt.Color(204, 204, 204));
-        getContentPane().add(detalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 530, -1));
-
-        lblDetalle.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        lblDetalle.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblDetalle.setForeground(new java.awt.Color(255, 255, 255));
         lblDetalle.setText("Detalle: ");
         getContentPane().add(lblDetalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 50, 20));
 
-        lblUnidad.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        lblUnidad.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblUnidad.setForeground(new java.awt.Color(255, 255, 255));
         lblUnidad.setText("Unidad: ");
         getContentPane().add(lblUnidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, -1, 20));
+        getContentPane().add(unidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 130, -1));
 
-        unidad.setBackground(new java.awt.Color(204, 204, 204));
-        getContentPane().add(unidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 150, -1));
-
-        lblStockAct.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        lblStockAct.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblStockAct.setForeground(new java.awt.Color(255, 255, 255));
         lblStockAct.setText("Stock actual: ");
         getContentPane().add(lblStockAct, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, -1, 20));
-
-        stock_actual.setBackground(new java.awt.Color(204, 204, 204));
         getContentPane().add(stock_actual, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 270, -1));
+        getContentPane().add(stock_minimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 90, -1));
 
-        stock_minimo.setBackground(new java.awt.Color(204, 204, 204));
-        getContentPane().add(stock_minimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 110, -1));
-
-        lblStockMin.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        lblStockMin.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblStockMin.setForeground(new java.awt.Color(255, 255, 255));
         lblStockMin.setText("Stock mínimo: ");
         getContentPane().add(lblStockMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, -1, 20));
 
-        lblPrecVta.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        lblPrecVta.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblPrecVta.setForeground(new java.awt.Color(255, 255, 255));
         lblPrecVta.setText("Precio de venta: ");
         getContentPane().add(lblPrecVta, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, -1, 20));
-
-        precio_venta.setBackground(new java.awt.Color(204, 204, 204));
-        getContentPane().add(precio_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 270, -1));
+        getContentPane().add(precio_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, 250, -1));
 
         tabla_productos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -329,6 +318,7 @@ public class Productos extends javax.swing.JInternalFrame {
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
         control = 1;
         habilitar();
+        stock_actual.setEnabled(false);
         agregar.setEnabled(false);
         guardar.setEnabled(true);
         modificar.setEnabled(false);
@@ -339,6 +329,7 @@ public class Productos extends javax.swing.JInternalFrame {
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
         control = 0;
         habilitar();
+        stock_actual.setEnabled(false);
         agregar.setEnabled(false);
         guardar.setEnabled(true);
         modificar.setEnabled(false);
@@ -354,20 +345,21 @@ public class Productos extends javax.swing.JInternalFrame {
         ResultSet rs;
         if (control == 0) {
             try {
-                tipo_producto.setEnabled(false);
+                tipo_producto.setEnabled(true);
                 stock_actual.setEnabled(false);
+                
 
-                ps = con.prepareStatement("UPDATE productos SET codigo=?, tipo_producto_id_tipo=?, detalle=?, unidad=?, stock=?, stock_minimo=?, precio_vta=? WHERE id_productos=?");
+                ps = con.prepareStatement("UPDATE productos SET codigo=?, tipo_producto=?, detalle=?, unidad=?, stock_minimo=?, precio_vta=? WHERE id_productos=?");
                 int indice = tabla_productos.getSelectedRow();
                 String rr=String.valueOf(tabla_productos.getValueAt(indice, 0));
+                
                 ps.setString(1, codigo.getText());
-                ps.setString(2, String.valueOf(tipo_producto.getSelectedIndex()));
+                ps.setString(2, String.valueOf(tipo_producto.getSelectedItem()));
                 ps.setString(3, detalle.getText());
                 ps.setString(4, unidad.getText());
-                ps.setString(5, stock_actual.getText());
-                ps.setString(6, stock_minimo.getText());
-                ps.setString(7, precio_venta.getText());
-                ps.setString(8, rr);
+                ps.setString(5, stock_minimo.getText());
+                ps.setString(6, precio_venta.getText());
+                ps.setString(7, rr);
 
                 int res = ps.executeUpdate();
                 if (res > 0) {
@@ -380,13 +372,13 @@ public class Productos extends javax.swing.JInternalFrame {
             }
         } else {
             try {
-                ps = con.prepareStatement("INSERT INTO productos(codigo, tipo_producto_id_tipo, detalle, unidad, stock_minimo) VALUES(?,?,?,?,?)");
+                ps = con.prepareStatement("INSERT INTO productos(codigo, tipo_producto, detalle, unidad, stock_minimo, precio_vta) VALUES(?,?,?,?,?,?)");
                 ps.setString(1, codigo.getText());
-                ps.setString(2, String.valueOf(tipo_producto.getSelectedIndex()));
+                ps.setString(2, String.valueOf(tipo_producto.getSelectedItem()));
                 ps.setString(3, detalle.getText());
                 ps.setString(4, unidad.getText());
                 ps.setString(5, stock_minimo.getText());
-                
+                ps.setString(6, precio_venta.getText());
 
                 int re = ps.executeUpdate();
                 if (re > 0) {
@@ -414,14 +406,13 @@ public class Productos extends javax.swing.JInternalFrame {
         ResultSet rs;
        
         try {
-            ps=con.prepareStatement("SELECT codigo, detalle, unidad, stock, stock_minimo, precio_vta FROM productos WHERE id_productos=?");
+            ps=con.prepareStatement("SELECT codigo, detalle, unidad, stock_minimo, precio_vta FROM productos WHERE id_productos=?");
             ps.setInt(1, id);
             
             rs=ps.executeQuery();
             if(rs.next()){
                 codigo.setText(rs.getString("codigo"));
                detalle.setText(rs.getString("detalle"));
-               stock_actual.setText(rs.getString("stock"));
                unidad.setText(rs.getString("unidad"));
                stock_minimo.setText(rs.getString("stock_minimo"));
                precio_venta.setText(rs.getString("precio_vta"));

@@ -101,7 +101,7 @@ public class gastos extends javax.swing.JInternalFrame {
                 agregarActionPerformed(evt);
             }
         });
-        jPanel1.add(agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 75, -1));
+        jPanel1.add(agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 90, -1));
 
         guardar.setText("Guardar");
         guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +109,7 @@ public class gastos extends javax.swing.JInternalFrame {
                 guardarActionPerformed(evt);
             }
         });
-        jPanel1.add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 75, -1));
+        jPanel1.add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 90, -1));
 
         modificar.setText("Modificar");
         modificar.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +117,7 @@ public class gastos extends javax.swing.JInternalFrame {
                 modificarActionPerformed(evt);
             }
         });
-        jPanel1.add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 69, 75, -1));
+        jPanel1.add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 69, 90, -1));
 
         salir.setText("Salir");
         salir.addActionListener(new java.awt.event.ActionListener() {
@@ -125,9 +125,9 @@ public class gastos extends javax.swing.JInternalFrame {
                 salirActionPerformed(evt);
             }
         });
-        jPanel1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 75, -1));
+        jPanel1.add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 90, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 190));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 190));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -137,44 +137,51 @@ public class gastos extends javax.swing.JInternalFrame {
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.jpg"))); // NOI18N
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 60));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 50));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.jpg"))); // NOI18N
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 470, 60));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 460, 50));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 630, 50));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 640, 50));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Fecha:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, -1));
-        getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 230, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, -1, -1));
+        getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 230, -1));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Estado:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
 
         estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Pagado", "Pendiente" }));
-        getContentPane().add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 260, -1));
+        getContentPane().add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 260, -1));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Tipo de Factura:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, -1, -1));
-        getContentPane().add(tipofactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 180, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
+        getContentPane().add(tipofactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 170, -1));
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel7.setText("Proveedor:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, -1));
 
         proveedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
-        getContentPane().add(proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 240, -1));
+        getContentPane().add(proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 240, -1));
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel8.setText("Número de Sucursal:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
-        getContentPane().add(sucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 160, -1));
-        getContentPane().add(numerofact, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 160, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, -1, -1));
+        getContentPane().add(sucursal, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 150, -1));
+        getContentPane().add(numerofact, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 150, -1));
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel9.setText("Número de Factura:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel10.setText("Montó:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, -1, -1));
-        getContentPane().add(monto, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 260, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, -1, -1));
+        getContentPane().add(monto, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, 260, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

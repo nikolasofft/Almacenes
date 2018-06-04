@@ -1,15 +1,18 @@
 
 package vistas;
 
+import static sun.security.jgss.GSSUtil.login;
 import vistas.Archivos.Clientes;
 import vistas.Archivos.Productos;
-import vistas.Archivos.Registro;
-import vistas.Archivos.Permisos;
+import vistas.AdministradorDeUsuarios.Registro;
+import vistas.AdministradorDeUsuarios.Permisos;
 import vistas.Archivos.Proveedor;
 import vistas.Archivos.Tipo_Producto;
 import vistas.Ventas.Buscador_de_Productos;
 import vistas.Ventas.Generador_de_facturas;
 import vistas.Ventas.Ventas;
+import vistas.compras.Factura_Compras;
+import vistas.compras.TablaDeFacturasCompras;
 
 import vistas.compras.TablaDeGastos;
 import vistas.compras.gastos;
@@ -31,17 +34,13 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem17 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        facturaCompras = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        TablaGastos = new javax.swing.JMenuItem();
-        Gastos = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
@@ -55,9 +54,14 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenuItem15 = new javax.swing.JMenuItem();
         jMenuItem16 = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        Usuarios = new javax.swing.JMenuItem();
+        permisos = new javax.swing.JMenuItem();
+        cerrar_sesion = new javax.swing.JMenuItem();
+        salir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Principal");
+        setTitle("Control de Stock");
         setMaximumSize(new java.awt.Dimension(1366, 768));
         setMinimumSize(new java.awt.Dimension(1366, 768));
         setPreferredSize(new java.awt.Dimension(1366, 768));
@@ -89,14 +93,6 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem3.setText("Permisos");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem3);
-
         jMenuItem2.setText("Proveedores");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,14 +109,6 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem4);
 
-        jMenuItem5.setText("Usuarios");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem5);
-
         jMenuItem17.setText("Tipo de Productos");
         jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,31 +123,24 @@ public class Principal extends javax.swing.JFrame {
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/carrito.png"))); // NOI18N
         jMenu2.setText("COMPRAS");
 
-        jMenuItem6.setText("Facturas de Compras");
-        jMenu2.add(jMenuItem6);
+        facturaCompras.setText("Facturas de Compras");
+        facturaCompras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                facturaComprasActionPerformed(evt);
+            }
+        });
+        jMenu2.add(facturaCompras);
 
         jMenuItem7.setText("Pagos");
         jMenu2.add(jMenuItem7);
 
-        jMenu6.setText("Gastos");
-
-        TablaGastos.setText("Tabla Gastos");
-        TablaGastos.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem6.setText("Gastos");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TablaGastosActionPerformed(evt);
+                jMenuItem6ActionPerformed(evt);
             }
         });
-        jMenu6.add(TablaGastos);
-
-        Gastos.setText("Cargar o Modificar Gastos");
-        Gastos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GastosActionPerformed(evt);
-            }
-        });
-        jMenu6.add(Gastos);
-
-        jMenu2.add(jMenu6);
+        jMenu2.add(jMenuItem6);
 
         jMenuBar1.add(jMenu2);
 
@@ -226,6 +207,44 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu5);
 
+        jMenu6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuarios.png"))); // NOI18N
+        jMenu6.setText("ADMINISTRAR USUARIOS");
+
+        Usuarios.setText("Usuarios");
+        Usuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsuariosActionPerformed(evt);
+            }
+        });
+        jMenu6.add(Usuarios);
+
+        permisos.setText("Permisos");
+        permisos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                permisosActionPerformed(evt);
+            }
+        });
+        jMenu6.add(permisos);
+
+        cerrar_sesion.setText("Cerrar Sesión");
+        cerrar_sesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cerrar_sesionActionPerformed(evt);
+            }
+        });
+        jMenu6.add(cerrar_sesion);
+
+        salir.setText("Salir");
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
+        jMenu6.add(salir);
+
+        jMenuBar1.add(jMenu6);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -251,18 +270,6 @@ public class Principal extends javax.swing.JFrame {
         panel.add(pro);
         pro.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-       Permisos per=new Permisos();
-       panel.add(per);
-       per.setVisible(true);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        Registro re=new Registro();
-        panel.add(re);
-        re.setVisible(true);
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         Clientes cli=new Clientes();
@@ -305,18 +312,41 @@ public class Principal extends javax.swing.JFrame {
        
     }//GEN-LAST:event_Venta_libreActionPerformed
 
-    private void GastosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GastosActionPerformed
-       gastos ga=new gastos();
-       panel.add(ga);
-       ga.setVisible(true);
-               
-    }//GEN-LAST:event_GastosActionPerformed
+    private void facturaComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturaComprasActionPerformed
+        TablaDeFacturasCompras fac=new TablaDeFacturasCompras();
+        panel.add(fac);
+        fac.setVisible(true);
+    }//GEN-LAST:event_facturaComprasActionPerformed
 
-    private void TablaGastosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TablaGastosActionPerformed
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         TablaDeGastos ta=new TablaDeGastos();
         panel.add(ta);
         ta.setVisible(true);
-    }//GEN-LAST:event_TablaGastosActionPerformed
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void cerrar_sesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrar_sesionActionPerformed
+        dispose();
+        Login lo=new Login();
+        lo.setVisible(true);
+        
+        
+    }//GEN-LAST:event_cerrar_sesionActionPerformed
+
+    private void UsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuariosActionPerformed
+        Registro re=new Registro();
+        panel.add(re);
+        re.setVisible(true);
+    }//GEN-LAST:event_UsuariosActionPerformed
+
+    private void permisosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_permisosActionPerformed
+        Permisos per=new Permisos();
+       panel.add(per);
+       per.setVisible(true);
+    }//GEN-LAST:event_permisosActionPerformed
+
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        dispose();
+    }//GEN-LAST:event_salirActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -351,9 +381,10 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem Gastos;
-    private javax.swing.JMenuItem TablaGastos;
+    private javax.swing.JMenuItem Usuarios;
     private javax.swing.JMenuItem Venta_libre;
+    private javax.swing.JMenuItem cerrar_sesion;
+    private javax.swing.JMenuItem facturaCompras;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -372,12 +403,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem18;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem9;
     public static javax.swing.JDesktopPane panel;
+    private javax.swing.JMenuItem permisos;
+    private javax.swing.JMenuItem salir;
     // End of variables declaration//GEN-END:variables
 }

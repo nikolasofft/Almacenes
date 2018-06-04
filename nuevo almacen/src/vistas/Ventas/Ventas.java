@@ -102,6 +102,8 @@ public class Ventas extends javax.swing.JInternalFrame {
         });
         jPanel1.add(fecha_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(812, 29, 90, -1));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Fecha:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(769, 32, -1, -1));
 

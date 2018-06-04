@@ -140,19 +140,19 @@ public class Tipo_Producto extends javax.swing.JInternalFrame {
         jLabel1.setText("Tipos de Productos");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Detalle:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 50, 20));
+        getContentPane().add(detalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 210, -1));
 
-        detalle.setBackground(new java.awt.Color(204, 204, 204));
-        getContentPane().add(detalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 200, -1));
-
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Estado:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
 
         estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Activo", "Inactivo", " " }));
-        getContentPane().add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 200, -1));
+        getContentPane().add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 210, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 290, 160));

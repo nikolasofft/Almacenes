@@ -1,4 +1,4 @@
-package vistas.Archivos;
+package vistas.AdministradorDeUsuarios;
 
 import Conexion.Conexion;
 import java.sql.*;
@@ -107,7 +107,7 @@ public class Permisos extends javax.swing.JInternalFrame {
                 AgregarActionPerformed(evt);
             }
         });
-        PanelBotones.add(Agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, -1));
+        PanelBotones.add(Agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, -1));
 
         Guardar.setText("Guardar");
         Guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +115,7 @@ public class Permisos extends javax.swing.JInternalFrame {
                 GuardarActionPerformed(evt);
             }
         });
-        PanelBotones.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 110, -1));
+        PanelBotones.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 90, -1));
 
         Modificar.setText("Modificar");
         Modificar.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +123,7 @@ public class Permisos extends javax.swing.JInternalFrame {
                 ModificarActionPerformed(evt);
             }
         });
-        PanelBotones.add(Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 110, -1));
+        PanelBotones.add(Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 90, -1));
 
         eliminar.setText("Eliminar");
         eliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -131,7 +131,7 @@ public class Permisos extends javax.swing.JInternalFrame {
                 eliminarActionPerformed(evt);
             }
         });
-        PanelBotones.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 110, -1));
+        PanelBotones.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 90, -1));
 
         btnCerrar.setText("Salir");
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -139,36 +139,34 @@ public class Permisos extends javax.swing.JInternalFrame {
                 btnCerrarActionPerformed(evt);
             }
         });
-        PanelBotones.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 190, 100, -1));
+        PanelBotones.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 90, -1));
 
-        getContentPane().add(PanelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 220));
+        getContentPane().add(PanelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 220));
 
-        detalle.setBackground(new java.awt.Color(204, 204, 204));
         detalle.setColumns(20);
         detalle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         detalle.setRows(5);
         jScrollPane1.setViewportView(detalle);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 200, 100));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 230, 100));
 
         lblTitulo.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(255, 255, 255));
         lblTitulo.setText("PERMISOS DE USUARIOS");
-        getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 270, 30));
+        getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 270, 30));
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Descripción : ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 80, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 80, 20));
 
-        descripcion.setBackground(new java.awt.Color(204, 204, 204));
         descripcion.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        getContentPane().add(descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 200, -1));
+        getContentPane().add(descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 230, -1));
 
-        lblEstado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblEstado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblEstado.setForeground(new java.awt.Color(255, 255, 255));
         lblEstado.setText("Estado :");
-        getContentPane().add(lblEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 80, 20));
+        getContentPane().add(lblEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 80, 20));
 
         estados.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activado", "Desactivado", " " }));
         estados.addActionListener(new java.awt.event.ActionListener() {
@@ -176,15 +174,15 @@ public class Permisos extends javax.swing.JInternalFrame {
                 estadosActionPerformed(evt);
             }
         });
-        getContentPane().add(estados, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 200, -1));
+        getContentPane().add(estados, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 230, -1));
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Detalles :");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, 20));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, 20));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.jpg"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 310, 220));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 330, 220));
 
         tablaPermisos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
